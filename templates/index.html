@@ -23,13 +23,13 @@
     <div class="row">
         <div class="col-sm-6">
             <h2>Featured Mars Image</h2>
-            <img src="{{ mars.Featured_Image }}" class=img-thumbnail style="width:400px" alt="Featured Image">
+            <img src="{{ mars.Featured_Image }}" class=img-thumbnail style="width:100%" alt="Featured Image">
         </div>
         <div class="col-sm-6">
-            <div>
+            <span class="border">
                 <h3>Current Weather on Mars</h3>
                 <h4>{{ mars.Latest_Weather}}</h4>
-            </div>
+            </span>
             <div>
                 <h3> Mars Fact</h3>
                   {{mars.Mars_Fact| safe}}
@@ -37,8 +37,28 @@
         </div>
     </div>
     <div>
+      
+      <p>{{mars.Hemisphere_Images}} </p>
+      {% for hemisphere in mars.Hemisphere_Images %}
+    
+      <div class="col-3">
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h4 class="card-title">{{ mars.Hemisphere_Images[0]['title'] }}</h4>
+              <img src="{{ mars.Hemisphere_Images[0]['img_url'] }}" alt="">
+            </div>
+          </div>
+      </div>
+
+      {% endfor %}
+
+
+
+
+</div>
+    <div>
         <h2>Mars Hemispheres</h2>
-        <img src="" alt="">
+        <img src="{{mars.Hemisphere_Images}}" alt="">
     </div>
   </div>
 </body>
